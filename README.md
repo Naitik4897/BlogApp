@@ -78,7 +78,7 @@ blogs-context-starter/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/yourusername/blogs-context-starter.git
    cd blogs-context-starter
    ```
 
@@ -94,6 +94,38 @@ blogs-context-starter/
 
 4. **Open your browser**
    Navigate to `http://localhost:3000`
+
+## 🌐 Deployment
+
+### Deploy to Vercel
+
+1. **Push to GitHub** (see GitHub Setup section below)
+2. **Connect to Vercel**:
+   - Go to [vercel.com](https://vercel.com/)
+   - Sign in with your GitHub account
+   - Click "New Project"
+   - Import your repository
+   - Vercel will automatically detect it's a React app
+   - Click "Deploy"
+
+### GitHub Setup
+
+1. **Create a new repository on GitHub**
+2. **Connect your local repository**:
+   ```bash
+   git remote add origin https://github.com/yourusername/blogs-context-starter.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+### Environment Variables
+
+If you need environment variables for your API, create a `.env` file:
+```env
+REACT_APP_API_URL=your-api-url
+```
+
+And add them to your Vercel deployment settings.
 
 ## 🎯 Usage
 
