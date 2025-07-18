@@ -32,7 +32,8 @@ export const App = () => {
       // iska matlab home page show karna hai
       fetchBlogPosts(Number(page));
     }
-  },[location.pathname, location.search, fetchBlogPosts, searchParams]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[location.pathname, location.search, searchParams]);
 
 
   return (
