@@ -22,16 +22,17 @@ export default function AppContextProvider({children}) {
         if(category) {
             url += `&category=${category}`;
         }
+        console.log("Fetching from URL:", url);
         try {
             const result = await fetch(url);
             const data = await result.json();
-            console.log(data);
+            console.log("API Response:", data);
             setPage(data.page);
             setPosts(data.posts);
             setTotalPages(data.totalPages); 
         }
         catch(error) {
-            console.log("Error in fetching data");
+            console.log("Error in fetching data:", error);
             setPage(1);
             setPosts([]);
             setTotalPages(null);
