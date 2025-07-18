@@ -78,7 +78,7 @@ blogs-context-starter/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/blogs-context-starter.git
+   git clone https://github.com/Naitik4897/BlogApp
    cd blogs-context-starter
    ```
 
