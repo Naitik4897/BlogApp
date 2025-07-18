@@ -14,28 +14,28 @@ const BlogPage = () => {
 
     const blogId = location.pathname.split('/').at(-1);
 
-    async function fetchRelatedBlogs() {
-        setLoading(true);
-        let url = `${newBaseUrl}get-blog?blogId=${blogId}`;
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            setBlog(data.blog);
-            setRelatedBlogs(data.relatedBlogs);
-        }
-        catch(error) {
-            console.log("Error fetching blog data", error);
-            setBlog(null);
-            setRelatedBlogs([]);
-        }
-        setLoading(false);
-    }
-
     useEffect(() => {
+        async function fetchRelatedBlogs() {
+            setLoading(true);
+            let url = `${newBaseUrl}get-blog?blogId=${blogId}`;
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                setBlog(data.blog);
+                setRelatedBlogs(data.relatedBlogs);
+            }
+            catch(error) {
+                console.log("Error fetching blog data", error);
+                setBlog(null);
+                setRelatedBlogs([]);
+            }
+            setLoading(false);
+        }
+
         if(blogId){
             fetchRelatedBlogs();
         } 
-    }, [location.pathname]);
+    }, [location.pathname, blogId, setLoading]);
 
     return (
         <div className="min-h-screen bg-gray-50">

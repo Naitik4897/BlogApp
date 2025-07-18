@@ -1,7 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import Header from './Components/Header';
-import Blogs from './Components/Blogs';
-import Pagination from './Components/Pagination';
 import { AppContext } from './Context/AppContext';
 import './App.css';
 import { Route, Routes, useSearchParams, useLocation } from 'react-router-dom';
@@ -15,7 +12,7 @@ export const App = () => {
 
   const {fetchBlogPosts} = useContext(AppContext);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const location = useLocation(); 
 
   useEffect(() => {
@@ -35,7 +32,7 @@ export const App = () => {
       // iska matlab home page show karna hai
       fetchBlogPosts(Number(page));
     }
-  },[location.pathname, location.search]);
+  },[location.pathname, location.search, fetchBlogPosts, searchParams]);
 
 
   return (
